@@ -105,16 +105,18 @@ class TestAllMethods(unittest.TestCase):
 
 		
 
-	## Check to see whethercheck_warehouse_for_item works
+	## Check to see whether check_warehouse_for_item works
 	def test_check_warehouse_for_item(self):
 		w3 = Warehouse()
 		w3.add_item(self.item3)
 
 		# Case 1: check when there the item isn't in the warehouse
-		
+		w3.check_warehouse_for_item(self.item2)
+		self.assertEqual(len(w3.items), 2)
 
 		# Case 2: Check when the item is in the warehouse already
-		pass
+		w3.check_warehouse_for_item(self.item3)
+		self.assertEqual(len(w3.items), 2)
 
 
 
